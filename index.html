@@ -6,12 +6,9 @@
   <title>Oregon Memorial Day Escape 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -22,8 +19,8 @@
     }
 
     .hero {
-      height: 90vh;
-      background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1600&auto=format&fit=crop');
+      min-height: 90vh;
+      background-image: linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)), url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1800&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -31,191 +28,127 @@
       justify-content: center;
       text-align: center;
       color: white;
-      padding: 40px;
+      padding: 48px;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 72px;
-      margin-bottom: 20px;
-      line-height: 1.1;
+      font-size: clamp(46px, 7vw, 78px);
+      margin-bottom: 22px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
     }
 
-    .hero p {
-      max-width: 900px;
-      font-size: 20px;
-      opacity: 0.95;
-    }
+    .hero p { max-width: 900px; font-size: 20px; opacity: 0.96; margin: auto; }
 
-    .section {
-      max-width: 1250px;
-      margin: auto;
-      padding: 80px 40px;
-    }
+    .section { max-width: 1250px; margin: auto; padding: 80px 40px; }
 
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 48px;
       margin-bottom: 18px;
       color: #7a284d;
+      line-height: 1.08;
     }
 
-    .intro-grid {
+    .intro-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 42px; align-items: center; }
+    .intro-grid img { width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.18); }
+
+    .quote { margin-top: 25px; font-size: 22px; font-style: italic; color: #475569; }
+
+    .quick-facts {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .intro-grid img {
-      width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-    }
-
-    .quote {
-      margin-top: 25px;
-      font-size: 22px;
-      font-style: italic;
-      color: #475569;
-    }
-
-    .day-card {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      margin-bottom: 70px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-    }
-
-    .day-header {
-      padding: 50px;
-      color: white;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-    }
-
-    .day-header-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .day-header h2 {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-    }
-
-    .day-header p {
-      margin-top: 10px;
-      max-width: 900px;
-      font-size: 18px;
-    }
-
-    .content {
-      padding: 45px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
       margin-top: 30px;
     }
 
-    .box {
-      background: #faf7f3;
-      padding: 28px;
-      border-radius: 20px;
-      border: 1px solid #ece8e1;
-    }
-
-    .box h3 {
-      margin-top: 0;
-      color: #1d3557;
-      font-size: 24px;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .timeline {
-      margin-top: 25px;
-    }
-
-    .timeline-item {
-      margin-bottom: 22px;
-      padding-left: 20px;
-      border-left: 3px solid #7a284d;
-    }
-
-    .timeline-item strong {
-      display: block;
-      color: #7a284d;
-      margin-bottom: 6px;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .image-grid img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
+    .fact {
+      background: #ffffff;
       border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      border: 1px solid #eee7de;
     }
 
-    iframe {
-      width: 100%;
-      height: 320px;
-      border: 0;
-      border-radius: 18px;
-      margin-top: 20px;
-    }
+    .fact strong { color: #7a284d; display: block; margin-bottom: 5px; }
 
-    .highlight {
-      background: linear-gradient(135deg, #7a284d, #1d3557);
+    .day-card { background: white; border-radius: 28px; overflow: hidden; margin-bottom: 76px; box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
+    .day-header { padding: 52px; color: white; background-size: cover; background-position: center; position: relative; }
+    .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.48); }
+    .day-header-content { position: relative; z-index: 2; }
+    .day-header h2 { margin: 0; font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; }
+    .day-header p { margin-top: 10px; max-width: 900px; font-size: 18px; }
+
+    .content { padding: 45px; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 30px; }
+    .split-uneven { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 36px; margin-top: 30px; }
+
+    .box { background: #faf7f3; padding: 28px; border-radius: 20px; border: 1px solid #ece8e1; }
+    .box h3 { margin-top: 0; color: #1d3557; font-size: 24px; font-family: 'Playfair Display', serif; line-height: 1.15; }
+
+    .timeline { margin-top: 25px; }
+    .timeline-item { margin-bottom: 24px; padding-left: 20px; border-left: 3px solid #7a284d; }
+    .timeline-item strong { display: block; color: #7a284d; margin-bottom: 6px; font-size: 16px; }
+
+    .reserved {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #7a284d;
       color: white;
-      border-radius: 24px;
-      padding: 35px;
-      margin-top: 30px;
+      margin-right: 8px;
+      vertical-align: middle;
     }
 
-    .footer {
-      text-align: center;
-      padding: 80px 20px;
-      background: #1e293b;
+    .suggested {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #1d3557;
       color: white;
+      margin-right: 8px;
+      vertical-align: middle;
     }
 
-    .footer h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-    }
+    .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+    .image-grid img { width: 100%; height: 260px; object-fit: cover; border-radius: 18px; }
+
+    iframe { width: 100%; height: 340px; border: 0; border-radius: 18px; margin-top: 20px; }
+
+    .highlight { background: linear-gradient(135deg, #7a284d, #1d3557); color: white; border-radius: 24px; padding: 35px; margin-top: 30px; }
+    .highlight h3 { margin-top: 0; font-family: 'Playfair Display', serif; font-size: 28px; }
+
+    .map-caption { color: #64748b; font-size: 13px; margin-top: 8px; }
+
+    .footer { text-align: center; padding: 80px 20px; background: #1e293b; color: white; }
+    .footer h2 { font-family: 'Playfair Display', serif; font-size: 42px; }
 
     @media(max-width: 900px) {
-      .split,
-      .intro-grid,
-      .image-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 46px;
-      }
-
-      .section-title {
-        font-size: 36px;
-      }
+      .split, .split-uneven, .intro-grid, .image-grid, .quick-facts { grid-template-columns: 1fr; }
+      .section { padding: 32px 14px; }
+      .content { padding: 20px 14px; }
+      .day-header { padding: 34px 18px; }
+      .hero { padding: 30px 18px; min-height: 78vh; }
+      .hero h1 { font-size: 44px; }
+      .hero p { font-size: 17px; }
+      .section-title { font-size: 34px; }
+      .day-header h2 { font-size: 31px; }
+      .day-header p { font-size: 16px; }
+      .box { padding: 18px; border-radius: 16px; }
+      .highlight { padding: 22px 18px; border-radius: 18px; }
+      iframe { height: 280px; border-radius: 14px; }
+      .day-card { border-radius: 18px; margin-bottom: 38px; }
+      .image-grid img { height: 220px; }
+      .timeline-item { padding-left: 14px; }
     }
   </style>
 </head>
@@ -224,9 +157,7 @@
   <section class="hero">
     <div>
       <h1>Oregon Memorial Day Escape</h1>
-      <p>
-        A boutique-style road trip through Willamette Valley wine country and the dramatic Oregon coast — designed around vineyard tastings, dune sunsets, rugged coastline, scenic drives, and memorable restaurants.
-      </p>
+      <p>A boutique-style road trip through Willamette Valley wine country and the Oregon coast — built around confirmed reservations, scenic timing, vineyard views, dune sunsets, breweries, and relaxed coastal exploring.</p>
     </div>
   </section>
 
@@ -234,25 +165,24 @@
     <div class="intro-grid">
       <div>
         <h2 class="section-title">The Route</h2>
-        <p>
-          This itinerary is intentionally structured to minimize backtracking while maximizing scenery and atmosphere. You’ll spend almost no meaningful time in Portland itself, instead using it only as your arrival gateway before diving immediately into wine country.
-        </p>
-
-        <p>
-          The pacing gradually evolves from sophisticated vineyard tastings and countryside roads into rugged Pacific coastline, dramatic dune landscapes, charming coastal towns, and iconic Oregon sunsets.
-        </p>
-
-        <div class="quote">
-          “The best Oregon trips balance world-class wine with wild Pacific scenery.”
-        </div>
+        <p>This itinerary is structured to keep Portland to a minimum and move quickly into the best parts of the trip: Willamette Valley wine country, Pacific City’s dune-and-ocean scenery, Newport’s working-harbor seafood scene, and a Cannon Beach finale.</p>
+        <p>The biggest win in your updated plan is sleeping in Pacific City for two nights. That gives you a true coastal base, keeps Saturday flexible, and lets the trip feel less like a point-to-point sprint.</p>
+        <div class="quote">“Wine country first, coast second, Cannon Beach finale — the cleanest version of this Oregon weekend.”</div>
       </div>
-
       <div>
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop" alt="Oregon Coast">
       </div>
     </div>
 
-    <iframe src="https://www.google.com/maps?q=Portland+Airport+to+McMinnville+to+Pacific+City+to+Cannon+Beach&output=embed"></iframe>
+    <div class="quick-facts">
+      <div class="fact"><strong>Night 1</strong>Portland Airport</div>
+      <div class="fact"><strong>Night 2</strong>Downtown McMinnville</div>
+      <div class="fact"><strong>Nights 3–4</strong>Pacific City</div>
+      <div class="fact"><strong>Night 5</strong>Cannon Beach</div>
+    </div>
+
+    <iframe src="https://www.google.com/maps/dir/Portland+International+Airport,+Portland,+OR/McMinnville,+OR/Pacific+City,+OR/Cannon+Beach,+OR/Portland+International+Airport,+Portland,+OR/output=embed"></iframe>
+    <div class="map-caption">Full trip driving overview: PDX → McMinnville → Pacific City → Cannon Beach → PDX.</div>
   </section>
 
   <section class="section">
@@ -262,30 +192,27 @@
         <div class="overlay"></div>
         <div class="day-header-content">
           <h2>Wednesday • May 20</h2>
-          <p>Arrival in Portland — easy airport night before heading directly into wine country.</p>
+          <p>Arrival in Portland — an easy airport night before wine country.</p>
         </div>
       </div>
-
       <div class="content">
         <div class="split">
           <div class="box">
-            <h3>Arrival Strategy</h3>
-            <p>
-              Landing at 9:38 PM and staying near PDX is absolutely the correct move. It avoids a late-night drive into wine country and allows you to start the trip refreshed the next morning.
-            </p>
-
-            <p>
-              Your Holiday Inn Express near the airport keeps logistics simple while giving you quick access to the rental facility first thing in the morning.
-            </p>
+            <h3>Evening Plan</h3>
+            <div class="timeline">
+              <div class="timeline-item"><strong><span class="reserved">Flight</span>9:38 PM — Arrive at PDX</strong>Land in Portland and keep the night simple. Since you arrive late, the best move is avoiding any meaningful driving tonight.</div>
+              <div class="timeline-item"><strong><span class="reserved">Hotel</span>10:15–10:45 PM — Check into Holiday Inn Express Portland Airport</strong>Staying near PDX keeps this night purely functional and lets you start fresh the next morning.</div>
+            </div>
           </div>
-
           <div class="box">
-            <h3>Optional Late-Night Stops</h3>
-            <p><strong>Migration Brewing</strong> — excellent Oregon craft beer list with a relaxed atmosphere.</p>
-            <p><strong>Screen Door Eastside</strong> — iconic Southern-inspired comfort food if you arrive hungry.</p>
-            <p><strong>Loyal Legion</strong> — massive Pacific Northwest beer selection.</p>
+            <h3>If You Want a Quick Bite</h3>
+            <p><strong>Migration Brewing</strong> is a good casual Oregon beer option if you want one low-effort drink and snack after landing.</p>
+            <p><strong>Loyal Legion</strong> is a better beer-geek choice if you want a large Oregon tap list.</p>
+            <p><strong>Recommendation:</strong> only go out if you are genuinely hungry. The trip gets good immediately the next morning.</p>
           </div>
         </div>
+        <iframe src="https://www.google.com/maps/dir/Portland+International+Airport/Holiday+Inn+Express+%26+Suites+Portland+Airport,+9189+NE+Cascades+Pkwy,+Portland,+OR+97220/output=embed"></iframe>
+        <div class="map-caption">Day 0 drive: PDX arrival → airport hotel.</div>
       </div>
     </div>
 
@@ -294,65 +221,34 @@
         <div class="overlay"></div>
         <div class="day-header-content">
           <h2>Thursday • May 21</h2>
-          <p>Willamette Valley Wine Country — vineyard views, rolling hills, and your strongest tasting day.</p>
+          <p>Portland breakfast, rental car pickup, and a full scenic wine-country day.</p>
         </div>
       </div>
-
       <div class="content">
-
         <div class="timeline">
-          <div class="timeline-item">
-            <strong>8:00 AM — Pick Up Rental SUV</strong>
-            Your Mazda CX-50 is perfect for this trip: comfortable highway cruiser, scenic-drive friendly, and ideal for the coast.
-          </div>
-
-          <div class="timeline-item">
-            <strong>8:30 AM — Breakfast at Screen Door Eastside</strong>
-            One of Portland’s most iconic breakfasts. Famous for praline bacon, biscuits, fried chicken, and hearty brunch plates.
-          </div>
-
-          <div class="timeline-item">
-            <strong>10:00 AM — Elk Cove Vineyards</strong>
-            Elk Cove feels quintessentially Oregon wine country: rolling vineyard hills, quiet countryside roads, and a more intimate atmosphere than Napa-style wineries. The Vine-to-Wine experience gives you a deeper introduction to Oregon Pinot Noir.
-          </div>
-
-          <div class="timeline-item">
-            <strong>12:15 PM — Lunch at Red Hills Market</strong>
-            One of the best all-around wine-country lunch spots. Excellent sandwiches, wood-fired pizza, salads, beer, and outdoor seating.
-          </div>
-
-          <div class="timeline-item">
-            <strong>1:00 PM — Fairsing Vineyard</strong>
-            Arguably the prettiest vineyard setting of the trip. Elevated hillside views stretch across layers of vineyards and Oregon farmland.
-          </div>
-
-          <div class="timeline-item">
-            <strong>3:00 PM — Soter Vineyards</strong>
-            Mineral Springs Ranch feels luxurious but understated. Beautiful ranch property, thoughtful hospitality, and expansive valley scenery.
-          </div>
+          <div class="timeline-item"><strong><span class="reserved">Rental Car</span>8:00 AM — Pick up Budget Intermediate SUV at PDX</strong>Budget confirmation #45638768US0. Pick up at Portland International Airport. The Mazda CX-50 or similar is a great fit for wine-country roads and coastal driving.</div>
+          <div class="timeline-item"><strong><span class="suggested">Breakfast</span>8:30–9:15 AM — Screen Door Eastside</strong>Start with Portland’s best classic breakfast energy before leaving the city. It is famous for hearty Southern-inspired brunch plates, biscuits, praline bacon, and fried chicken. If you want something quicker, Pine State Biscuits is the faster, more casual alternative.</div>
+          <div class="timeline-item"><strong><span class="reserved">Winery</span>10:00 AM–12:00 PM — Elk Cove Vineyards</strong>Confirmed: Vine to Wine Experience, party of 2, confirmation #TOCK-R-0OEG6UPI. Elk Cove is a beautiful first stop because it feels rural, green, and unmistakably Willamette Valley. The experience includes a provisions board and gives you a deeper sense of how the wines connect to the vineyard landscape.</div>
+          <div class="timeline-item"><strong><span class="suggested">Lunch</span>12:20–12:50 PM — Quick lunch / provisions stop</strong>Because Fairsing is at 1:00 PM, keep lunch efficient. Best option: grab something light at or near Carlton/Yamhill, or rely on Elk Cove’s provisions board and save a fuller meal for dinner. Red Hills Market is great but slightly tight with this reservation spacing.</div>
+          <div class="timeline-item"><strong><span class="reserved">Winery</span>1:00–2:15 PM — Fairsing Vineyard</strong>Confirmed: Wine Flight Tasting, reservation #3380. Fairsing is one of the prettiest settings in the trip: hillside views, forested edges, vineyard rows, and a more peaceful, estate-like feel. Pack an extra layer — the winery specifically warns that Oregon weather can shift quickly.</div>
+          <div class="timeline-item"><strong><span class="reserved">Winery</span>3:00–4:15 PM — Soter Vineyards</strong>Confirmed: Estates Experience, confirmation #TOCK-R-W0MCV3R3. Soter’s Mineral Springs Ranch is polished and scenic, with wide valley views and a more curated tasting feel. Arrive on time — they note that guests more than 10 minutes late may need to reschedule.</div>
+          <div class="timeline-item"><strong><span class="reserved">Stay</span>5:00 PM — Check into Rory’s Rest at First and Ford</strong>Confirmed Airbnb: 605 NE 1st St, McMinnville. Check-in after 3:00 PM; checkout Friday by 11:00 AM. This location is excellent because you can park the car and walk downtown for dinner and drinks.</div>
+          <div class="timeline-item"><strong><span class="suggested">Dinner</span>7:00 PM — McMinnville dinner</strong>Best splurge: Hayward, a refined Pacific Northwest farm-to-table restaurant. Mid-range/fun: Pura Vida Cocina for bright Latin-inspired food and drinks. Beer stop: Heater Allen Brewing for excellent lagers.</div>
         </div>
 
         <div class="highlight">
-          <h3>Evening in McMinnville</h3>
-          <p>
-            Downtown McMinnville is one of the most enjoyable small-town wine destinations in America. Walkable streets, tasting rooms, breweries, restaurants, and boutique storefronts create a relaxed but upscale atmosphere.
-          </p>
-
-          <p>
-            <strong>Best Dinner:</strong> Hayward — refined Pacific Northwest farm-to-table cuisine.<br>
-            <strong>Most Fun:</strong> Pura Vida Cocina — lively Latin-inspired coastal dishes and margaritas.<br>
-            <strong>Best Brewery:</strong> Heater Allen Brewing — internationally respected lagers.
-          </p>
+          <h3>Why This Day Works</h3>
+          <p>This is your most reservation-heavy day, so the key is pacing. Elk Cove is immersive, Fairsing is scenic, and Soter is polished. By ending in walkable downtown McMinnville, you avoid any evening driving after a full wine day.</p>
         </div>
 
         <div class="image-grid">
-          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?q=80&w=1200&auto=format&fit=crop" alt="Vineyard rows">
+          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop" alt="Wine glass">
+          <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop" alt="Oregon landscape">
         </div>
 
-        <iframe src="https://www.google.com/maps?q=Elk+Cove+Vineyards+to+Fairsing+Vineyard+to+Soter+Vineyards&output=embed"></iframe>
-
+        <iframe src="https://www.google.com/maps/dir/Holiday+Inn+Express+%26+Suites+Portland+Airport,+9189+NE+Cascades+Pkwy,+Portland,+OR+97220/Screen+Door+Eastside,+Portland,+OR/Elk+Cove+Vineyards,+27751+NW+Olson+Rd,+Gaston,+OR/Fairsing+Vineyard,+21455+NE+Burkett+Hill+Rd,+Yamhill,+OR/Soter+Vineyards,+10880+NE+Mineral+Springs+Rd,+Carlton,+OR/605+NE+1st+St,+McMinnville,+OR+97128/output=embed"></iframe>
+        <div class="map-caption">Day 1 driving route: airport hotel → breakfast → Elk Cove → Fairsing → Soter → McMinnville Airbnb.</div>
       </div>
     </div>
 
@@ -361,51 +257,35 @@
         <div class="overlay"></div>
         <div class="day-header-content">
           <h2>Friday • May 22</h2>
-          <p>Dundee Hills tastings → Pacific City sunset dunes.</p>
+          <p>Dundee Hills tastings, then west to Pacific City for sunset.</p>
         </div>
       </div>
-
       <div class="content">
-
-        <div class="split">
-          <div class="box">
-            <h3>Dusky Goose</h3>
-            <p>
-              Dusky Goose offers one of the more polished and elegant Dundee Hills tasting experiences. The setting feels elevated and relaxed at the same time, with expansive vineyard views and refined Pinot Noir.
-            </p>
-          </div>
-
-          <div class="box">
-            <h3>Stoller Family Estate</h3>
-            <p>
-              Stoller is among Oregon’s most photogenic wineries. Rolling hills, modern architecture, and a broad open property make it one of the most visually memorable stops in the valley.
-            </p>
-          </div>
+        <div class="timeline">
+          <div class="timeline-item"><strong><span class="suggested">Coffee</span>8:30 AM — Flag & Wire Coffee</strong>Start the morning with one of McMinnville’s better coffee stops. Keep breakfast light since you have two tastings and a coastal drive ahead.</div>
+          <div class="timeline-item"><strong><span class="reserved">Checkout</span>10:15–10:30 AM — Leave McMinnville Airbnb</strong>Official checkout is by 11:00 AM, but leaving a bit earlier gives you a relaxed buffer before Dusky Goose.</div>
+          <div class="timeline-item"><strong><span class="reserved">Winery</span>11:00 AM–12:15 PM — Dusky Goose</strong>Confirmed: Estate Tasting, party of 2, confirmation #TOCK-R-UMJ33J43. Dusky Goose is a polished Dundee Hills tasting room with elegant Pinot Noir and a quiet, refined feel. It is a good contrast to the more expansive ranch atmosphere of Soter the day before.</div>
+          <div class="timeline-item"><strong><span class="reserved">Winery</span>12:45–2:00 PM — Stoller Family Estate</strong>Confirmed updated reservation: Classic Tasting, party of 2, confirmation #TOCK-R-M3E3LGH3. Stoller is one of Oregon’s most photogenic wine properties: broad rolling hills, modern tasting architecture, and a bright, open estate setting. Their reminder about Friday/weekend traffic is worth taking seriously, so do not cut the arrival close.</div>
+          <div class="timeline-item"><strong><span class="suggested">Lunch</span>2:15–3:00 PM — Red Hills Market or Trellis Dundee</strong>After Stoller, grab lunch before the coast drive. Red Hills Market is better if you want casual, quick, and reliable. Trellis Dundee is better if you want a more composed sit-down wine-country lunch.</div>
+          <div class="timeline-item"><strong><span class="suggested">Drive</span>3:15–5:00 PM — Drive to Pacific City</strong>This is a beautiful transition drive: vineyard hills fade into forest and eventually open into the coastal landscape. Aim to arrive close to check-in rather than pushing dinner late.</div>
+          <div class="timeline-item"><strong><span class="reserved">Stay</span>5:00 PM — Check into Short Board Studio</strong>Confirmed Airbnb: 32742 Cape Kiwanda Dr, Pacific City. Check-in after 5:00 PM; checkout Sunday by 11:00 AM. This is a great coastal base because you are right by Cape Kiwanda.</div>
+          <div class="timeline-item"><strong><span class="suggested">Sunset</span>6:15–7:45 PM — Cape Kiwanda dune + beach walk</strong>This is the signature sunset of the trip. The dune climb is steep but short, and the payoff is huge: sandstone cliffs, ocean views, surfers, and golden light over the Pacific.</div>
+          <div class="timeline-item"><strong><span class="suggested">Dinner</span>7:45–8:30 PM — Pelican Brewing Pacific City</strong>Go for the setting as much as the food. It is right on the beach, making it the easiest and most atmospheric dinner after Cape Kiwanda.</div>
         </div>
 
         <div class="highlight">
-          <h3>Cape Kiwanda Sunset</h3>
-          <p>
-            This is one of the signature moments of the entire trip.
-          </p>
-
-          <p>
-            Cape Kiwanda’s massive dune rises directly above the Pacific Ocean, creating one of the most dramatic sunset environments on the Oregon coast. Climbing the dune is short but steep — and completely worth it.
-          </p>
-
-          <p>
-            After sunset, Pelican Brewing sits directly on the beach with beer, seafood, and one of the best casual atmospheres in the state.
-          </p>
+          <h3>Pacific City Arrival</h3>
+          <p>Moving to Pacific City tonight is a major upgrade. Instead of waking up inland and burning Saturday morning on the drive, you get a beach sunset Friday and a much more relaxed coastal day Saturday.</p>
         </div>
 
         <div class="image-grid">
-          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Coastal view">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop" alt="Coast road">
+          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop" alt="Pacific sunset">
         </div>
 
-        <iframe src="https://www.google.com/maps?q=McMinnville+to+Pacific+City&output=embed"></iframe>
-
+        <iframe src="https://www.google.com/maps/dir/605+NE+1st+St,+McMinnville,+OR+97128/Dusky+Goose,+8355+NE+Warren+Rd,+Dundee,+OR/Stoller+Family+Estate,+Dayton,+OR/Red+Hills+Market,+Dundee,+OR/32742+Cape+Kiwanda+Dr,+Pacific+City,+OR+97135/Pelican+Brewing+Pacific+City/output=embed"></iframe>
+        <div class="map-caption">Day 2 driving route: McMinnville Airbnb → Dusky Goose → Stoller → lunch → Pacific City Airbnb → Pelican Brewing.</div>
       </div>
     </div>
 
@@ -414,58 +294,52 @@
         <div class="overlay"></div>
         <div class="day-header-content">
           <h2>Saturday • May 23</h2>
-          <p>Central Oregon Coast exploration — Newport, Yachats, and Cape Perpetua.</p>
+          <p>Pacific City to Newport — coastal stops, seafood, viewpoints, and a relaxed return.</p>
         </div>
       </div>
-
       <div class="content">
+        <p>This day is now intentionally capped at Newport. That keeps the day scenic and satisfying without turning it into a road marathon. You still get dunes, rocky coast, a working harbor town, excellent seafood, and several short, high-payoff stops.</p>
 
-        <p>
-          This is your “wild Oregon” day. The polished vineyard atmosphere gives way to rugged cliffs, crashing waves, dramatic viewpoints, dune landscapes, and iconic Highway 101 coastal driving.
-        </p>
-
-        <div class="split">
-          <div class="box">
-            <h3>Newport</h3>
-            <p>
-              Newport feels like a real working Oregon coast town rather than purely a tourist stop. The harbor has fishing boats, seafood restaurants, breweries, and classic coastal energy.
-            </p>
-
-            <p>
-              <strong>Best Lunch:</strong> Local Ocean Seafoods — likely the best seafood meal of the trip.
-            </p>
-          </div>
-
-          <div class="box">
-            <h3>Yachats & Cape Perpetua</h3>
-            <p>
-              This area is widely considered the most dramatic scenery on the Oregon coast.
-            </p>
-
-            <p>
-              Thor’s Well, Spouting Horn, and the Cape Perpetua overlook combine crashing surf, cliffs, forests, and huge Pacific views.
-            </p>
-          </div>
+        <div class="timeline">
+          <div class="timeline-item"><strong><span class="suggested">Coffee</span>8:30 AM — Stimulus Coffee + Bakery</strong>Easy local coffee before heading south. If the weather is clear, take a quick beach walk before getting in the car.</div>
+          <div class="timeline-item"><strong><span class="suggested">Nature</span>9:15–10:15 AM — Neskowin Beach / Proposal Rock</strong>A mellow first stop with a broad beach, moody sea stack views, and a different feel from Pacific City. It is an easy way to start the day without committing to a full hike.</div>
+          <div class="timeline-item"><strong><span class="suggested">Scenic Stop</span>10:45–11:15 AM — Boiler Bay State Scenic Viewpoint</strong>A quick but dramatic ocean viewpoint north of Depoe Bay. Great for crashing waves and a short leg stretch.</div>
+          <div class="timeline-item"><strong><span class="suggested">Town Stop</span>11:20–11:50 AM — Depoe Bay</strong>A tiny harbor town known for whale-watching viewpoints and wave action. Keep this short unless you spot whales or want to linger around the seawall.</div>
+          <div class="timeline-item"><strong><span class="suggested">Geology Stop</span>12:05–12:30 PM — Devil’s Punchbowl State Natural Area</strong>A compact and unique coastal formation. It is a great payoff for minimal time: park, look down into the collapsed sea cave, take a few photos, and continue south.</div>
+          <div class="timeline-item"><strong><span class="suggested">Lunch</span>1:00–2:15 PM — Local Ocean Seafoods, Newport</strong>This is the recommended main meal of the day. Local Ocean feels like the right restaurant for Newport: fresh seafood, harbor atmosphere, and a menu that fits the working-coast setting.</div>
+          <div class="timeline-item"><strong><span class="suggested">Explore</span>2:15–3:30 PM — Newport Bayfront</strong>Walk the historic bayfront, watch the boats, browse shops, and enjoy the busier working-harbor energy. This gives the day a town component instead of only viewpoint hopping.</div>
+          <div class="timeline-item"><strong><span class="suggested">Optional</span>3:45–4:45 PM — Yaquina Head Outstanding Natural Area</strong>If you still have energy, this is the best Newport-area nature add-on: lighthouse views, ocean cliffs, seabirds, and tidepool potential depending on tide timing.</div>
+          <div class="timeline-item"><strong><span class="suggested">Return</span>5:00–6:45 PM — Drive back to Pacific City</strong>Head back before it gets too late. You already had your big seafood lunch, so the evening can stay simple.</div>
+          <div class="timeline-item"><strong><span class="suggested">Dinner</span>7:15 PM — Casual dinner in Pacific City</strong>Best repeat if you loved it: Pelican Brewing. Alternative: Meridian Restaurant at Headlands Lodge for a more elevated dinner, or grab casual food and enjoy the beach.</div>
         </div>
 
         <div class="highlight">
-          <h3>Best Hikes & Scenic Stops</h3>
-          <p>
-            <strong>Thor’s Well:</strong> short walk with enormous payoff.<br>
-            <strong>Cape Perpetua Lookout:</strong> dramatic elevated Pacific views.<br>
-            <strong>Devil’s Punchbowl:</strong> unique volcanic coastal formation.<br>
-            <strong>Depoe Bay:</strong> whale sightings and dramatic harbor views.
-          </p>
+          <h3>Why Skipping Yachats Works Here</h3>
+          <p>Yachats and Cape Perpetua are amazing, but cutting them keeps Saturday from becoming overly road-heavy. Newport is far enough south to give you a true central-coast feel while still making the day pleasant and flexible.</p>
+        </div>
+
+        <div class="split">
+          <div class="box">
+            <h3>Best Hike / Walk Options</h3>
+            <p><strong>Easy:</strong> Neskowin Beach and Proposal Rock.</p>
+            <p><strong>Scenic:</strong> Yaquina Head lighthouse area.</p>
+            <p><strong>Very short:</strong> Devil’s Punchbowl viewpoint.</p>
+          </div>
+          <div class="box">
+            <h3>Food & Beer Notes</h3>
+            <p><strong>Local Ocean Seafoods</strong> should be the anchor meal. It is the place that most strongly fits your route and timing.</p>
+            <p><strong>Rogue Ales</strong> is nearby if you want a quick brewery stop in Newport, but do not force it if you would rather spend time outside.</p>
+          </div>
         </div>
 
         <div class="image-grid">
-          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1200&auto=format&fit=crop" alt="Ocean waves">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="Coastal forest">
+          <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop" alt="Scenic coastline">
         </div>
 
-        <iframe src="https://www.google.com/maps?q=Pacific+City+to+Newport+to+Yachats&output=embed"></iframe>
-
+        <iframe src="https://www.google.com/maps/dir/32742+Cape+Kiwanda+Dr,+Pacific+City,+OR+97135/Neskowin+Beach,+OR/Boiler+Bay+State+Scenic+Viewpoint/Depoe+Bay,+OR/Devils+Punchbowl+State+Natural+Area/Local+Ocean+Seafoods,+Newport,+OR/Yaquina+Head+Outstanding+Natural+Area/32742+Cape+Kiwanda+Dr,+Pacific+City,+OR+97135/output=embed"></iframe>
+        <div class="map-caption">Day 3 driving route: Pacific City → Neskowin → Boiler Bay → Depoe Bay → Devil’s Punchbowl → Newport → optional Yaquina Head → Pacific City.</div>
       </div>
     </div>
 
@@ -474,56 +348,56 @@
         <div class="overlay"></div>
         <div class="day-header-content">
           <h2>Sunday • May 24</h2>
-          <p>Northbound coast drive → Cannon Beach finale.</p>
+          <p>North coast drive to Cannon Beach — viewpoints, cheese, beach town finale.</p>
         </div>
       </div>
-
       <div class="content">
-
-        <p>
-          Today combines the best of Oregon’s northern coast: forested headlands, dramatic viewpoints, charming beach towns, and your iconic Cannon Beach finale.
-        </p>
-
-        <div class="split">
-          <div class="box">
-            <h3>Cape Lookout</h3>
-            <p>
-              One of the best easy-to-moderate hikes on the coast. Forested trails open into spectacular Pacific viewpoints.
-            </p>
-          </div>
-
-          <div class="box">
-            <h3>Neahkahnie Mountain Viewpoint</h3>
-            <p>
-              Perhaps the single best roadside viewpoint on the Oregon coast. The sweeping coastline below feels cinematic.
-            </p>
-          </div>
+        <div class="timeline">
+          <div class="timeline-item"><strong><span class="reserved">Checkout</span>10:00–10:30 AM — Check out of Short Board Studio</strong>Official checkout is by 11:00 AM. Leaving around 10:00 keeps the day relaxed while still giving you enough time for scenic stops before Cannon Beach.</div>
+          <div class="timeline-item"><strong><span class="suggested">Hike</span>10:50 AM–12:00 PM — Cape Lookout State Park</strong>This is your best northbound coastal hike option. Do a shortened out-and-back rather than committing to the full trail. You get forest, ocean air, and a more rugged headland feel without overloading the day.</div>
+          <div class="timeline-item"><strong><span class="suggested">Lunch / Stop</span>12:45–1:45 PM — Tillamook Creamery</strong>Yes, it is touristy. It is also an efficient, fun stop with cheese, ice cream, and an easy break from the drive. Treat it as a casual lunch and leg stretch.</div>
+          <div class="timeline-item"><strong><span class="suggested">Viewpoint</span>2:35–2:55 PM — Neahkahnie Mountain Viewpoint</strong>One of the best roadside views on the entire Oregon coast. Do not skip this if the weather is clear — the coastline view is cinematic.</div>
+          <div class="timeline-item"><strong><span class="suggested">Town Stop</span>3:05–3:45 PM — Manzanita</strong>A quieter, more local-feeling beach town than Cannon Beach. Great for a short beach walk or coffee before the final push north.</div>
+          <div class="timeline-item"><strong><span class="reserved">Hotel</span>4:00 PM — Check into The Waves, Cannon Beach</strong>Confirmed: The Waves, 188 W 2nd St, Cannon Beach. Flagship King Studio, confirmation #1261796. Check-in is 4:00 PM; check-out Monday by 11:00 AM.</div>
+          <div class="timeline-item"><strong><span class="suggested">Sunset</span>6:30–8:00 PM — Haystack Rock beach walk</strong>This is the classic Cannon Beach moment. Walk the beach at golden hour and sunset, then wander town before dinner.</div>
+          <div class="timeline-item"><strong><span class="suggested">Dinner</span>8:00 PM — Cannon Beach dinner</strong>Best scenic/upscale choice: The Wayfarer Restaurant. Beer-focused casual choice: Public Coast Brewing. More relaxed dinner: Castaways.</div>
         </div>
 
         <div class="highlight">
           <h3>Cannon Beach Finale</h3>
-          <p>
-            Cannon Beach is touristy for a reason — it’s stunning.
-          </p>
-
-          <p>
-            Haystack Rock at sunset creates one of the classic Pacific Northwest landscapes. Ecola State Park adds dramatic forested cliffs and ocean viewpoints just north of town.
-          </p>
-
-          <p>
-            <strong>Best Dinner:</strong> The Wayfarer Restaurant — ocean views and refined coastal dining.<br>
-            <strong>Best Brewery:</strong> Public Coast Brewing.
-          </p>
+          <p>Cannon Beach is polished and popular, but it earns it. Haystack Rock at sunset is one of the defining Oregon coast views, and staying at The Waves puts you exactly where you want to be for an easy final evening.</p>
         </div>
 
         <div class="image-grid">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
-          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Forest road">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="Coastline">
+          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop" alt="Sunset coast">
         </div>
 
-        <iframe src="https://www.google.com/maps?q=Pacific+City+to+Cannon+Beach&output=embed"></iframe>
+        <iframe src="https://www.google.com/maps/dir/32742+Cape+Kiwanda+Dr,+Pacific+City,+OR+97135/Cape+Lookout+State+Park,+Tillamook,+OR/Tillamook+Creamery,+Tillamook,+OR/Neahkahnie+Mountain+Viewpoint/Manzanita,+OR/The+Waves,+188+W+2nd+St,+Cannon+Beach,+OR/Haystack+Rock,+Cannon+Beach,+OR/output=embed"></iframe>
+        <div class="map-caption">Day 4 driving route: Pacific City → Cape Lookout → Tillamook Creamery → Neahkahnie → Manzanita → The Waves → Haystack Rock.</div>
+      </div>
+    </div>
 
+    <div class="day-card">
+      <div class="day-header" style="background-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1600&auto=format&fit=crop');">
+        <div class="overlay"></div>
+        <div class="day-header-content">
+          <h2>Monday • May 25</h2>
+          <p>Final beach morning, then easy drive back to PDX.</p>
+        </div>
+      </div>
+      <div class="content">
+        <div class="timeline">
+          <div class="timeline-item"><strong><span class="suggested">Coffee</span>7:45–8:15 AM — Sleepy Monk Coffee Roasters</strong>A perfect final Cannon Beach stop: strong coffee, cozy atmosphere, and easy access before leaving town.</div>
+          <div class="timeline-item"><strong><span class="suggested">Walk</span>8:15–8:45 AM — Final beach walk</strong>If the weather cooperates, take one last short walk near Haystack Rock before loading the car.</div>
+          <div class="timeline-item"><strong><span class="reserved">Checkout</span>9:00 AM — Leave The Waves</strong>Official checkout is by 11:00 AM, but leaving around 9:00 gives you a comfortable buffer for Memorial Day traffic.</div>
+          <div class="timeline-item"><strong><span class="reserved">Rental Return</span>11:15 AM–12:00 PM — Return Budget SUV at PDX</strong>Rental drop-off is booked for 3:00 PM, but your flight is earlier, so return around late morning. Build in time for fuel, rental return, and walking to the terminal.</div>
+          <div class="timeline-item"><strong><span class="reserved">Flight</span>1:34 PM — Depart PDX</strong>With a 9:00 AM Cannon Beach departure, you should have a comfortable cushion even with holiday traffic.</div>
+        </div>
+
+        <iframe src="https://www.google.com/maps/dir/The+Waves,+188+W+2nd+St,+Cannon+Beach,+OR/Sleepy+Monk+Coffee+Roasters,+Cannon+Beach,+OR/Portland+International+Airport,+Portland,+OR/output=embed"></iframe>
+        <div class="map-caption">Departure driving route: The Waves → Sleepy Monk → PDX rental return and flight.</div>
       </div>
     </div>
 
@@ -531,9 +405,7 @@
 
   <section class="footer">
     <h2>Have an Incredible Trip</h2>
-    <p>
-      Oregon in late May is at its best: green landscapes, dramatic coastline, cool evenings, and long golden sunsets.
-    </p>
+    <p>Oregon in late May should be green, dramatic, cool, and atmospheric — exactly the right backdrop for wine country, coastal drives, dune sunsets, and a Cannon Beach finale.</p>
   </section>
 
 </body>
